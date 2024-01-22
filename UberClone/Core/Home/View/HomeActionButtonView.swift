@@ -12,7 +12,9 @@ struct HomeActionButtonView: View {
     var body: some View {
         Button {
             withAnimation(.spring()) {
-                isShowingSearchView.toggle()
+                if isShowingSearchView == true {
+                    isShowingSearchView.toggle()
+                }
             }
         } label: {
             Image(systemName: isShowingSearchView ? 
