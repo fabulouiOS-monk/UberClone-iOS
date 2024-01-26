@@ -32,5 +32,5 @@ struct LocationSearchResultCell: View {
 }
 
 #Preview {
-    LocationSearchResultCell()
+    LocationSearchResultCell(placeNameText: "Ram mandir", placeAddressText: "Ayodhya")
 }
