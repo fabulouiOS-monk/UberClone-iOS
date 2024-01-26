@@ -25,7 +25,7 @@ struct UberMapViewRepresentable: UIViewRepresentable {
 
     func updateUIView(_ uiView: UIViewType, context: Context) {
         if let coordinates = locationSearchViewModel.selectedLocationCoordinates {
-            print("[DEBUG]: Selected location is \(coordinates)")
+            context.coordinator.addAndSelectAnnotation(withCoordinates: coordinates)
         }
     }
 
@@ -36,13 +36,16 @@ struct UberMapViewRepresentable: UIViewRepresentable {
 
 extension UberMapViewRepresentable {
     class UberMapViewCoordinator: NSObject, MKMapViewDelegate {
+        // MARK: - Properties
         let parent: UberMapViewRepresentable
 
+        // MARK: - Lifecycle
         init(parent: UberMapViewRepresentable) {
             self.parent = parent
             super.init()
         }
 
+        // MARK: - MKMapView Delegate
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
             let region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(
@@ -51,6 +54,21 @@ extension UberMapViewRepresentable {
                 span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
             )
             parent.mapView.setRegion(region, animated: true)
+        }
+
+        // MARK: - Helpers
+        func addAndSelectAnnotation(withCoordinates coordinates: CLLocationCoordinate2D) {
+            /// Delete all the previous selected locations.
+            parent.mapView.removeAnnotations(parent.mapView.annotations)
+
+            /// Make the annotation out of the coordinates.
+            let anno = MKPointAnnotation ()
+            anno.coordinate = coordinates
+            parent.mapView.addAnnotation(anno)
+            parent.mapView.selectAnnotation(anno, animated: true)
+            
+            /// For zooming into the selected location .
+            parent.mapView.showAnnotations(parent.mapView.annotations, animated: true)
         }
     }
 }
