@@ -8,17 +8,14 @@
 import SwiftUI
 
 struct HomeActionButtonView: View {
-    @Binding var isShowingSearchView: Bool
+    @Binding var mapState: MapViewState
     var body: some View {
         Button {
             withAnimation(.spring()) {
-                if isShowingSearchView == true {
-                    isShowingSearchView.toggle()
-                }
+                actionForState(mapState)
             }
         } label: {
-            Image(systemName: isShowingSearchView ? 
-                  "arrow.backward" : "line.3.horizontal")
+            Image(systemName: imageForState(mapState))
                 .font(.title2)
                 .foregroundColor(.black)
                 .padding()
@@ -28,8 +25,28 @@ struct HomeActionButtonView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
+
+    func actionForState(_ state: MapViewState) {
+        switch state {
+        case .noInput:
+            print("DEBUG: no input")
+        case .searchingForLocation:
+            mapState = .noInput
+        case .locationSelected:
+            mapState = .noInput
+        }
+    }
+
+    func imageForState(_ state: MapViewState) -> String {
+        switch state {
+        case .noInput:
+            "line.3.horizontal"
+        case .searchingForLocation, .locationSelected :
+            "arrow.backward"
+        }
+    }
 }
 
 #Preview {
-    HomeActionButtonView(isShowingSearchView: .constant(true))
+    HomeActionButtonView(mapState: .constant(.noInput))
 }
