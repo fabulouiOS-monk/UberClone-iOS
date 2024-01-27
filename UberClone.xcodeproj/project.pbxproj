@@ -21,6 +21,7 @@
 		69DEF4912B64B3F00032BE3E /* MapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DEF4902B64B3F00032BE3E /* MapViewState.swift */; };
 		69DEF4952B64BD360032BE3E /* RideRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DEF4942B64BD360032BE3E /* RideRequestView.swift */; };
 		69DEF4972B64D18C0032BE3E /* RideType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DEF4962B64D18C0032BE3E /* RideType.swift */; };
+		69DEF49A2B6551F00032BE3E /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DEF4992B6551F00032BE3E /* Double.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		69DEF4902B64B3F00032BE3E /* MapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewState.swift; sourceTree = "<group>"; };
 		69DEF4942B64BD360032BE3E /* RideRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestView.swift; sourceTree = "<group>"; };
 		69DEF4962B64D18C0032BE3E /* RideType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideType.swift; sourceTree = "<group>"; };
+		69DEF4992B6551F00032BE3E /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		6947BCA02B5CC81700DF8135 /* UberClone */ = {
 			isa = PBXGroup;
 			children = (
+				69DEF4982B6551D80032BE3E /* Extensions */,
 				6947BCB52B5CC8D000DF8135 /* App */,
 				6947BCB82B5CC92D00DF8135 /* Core */,
 				6947BCB02B5CC8AC00DF8135 /* Managers */,
@@ -195,6 +198,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		69DEF4982B6551D80032BE3E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				69DEF4992B6551F00032BE3E /* Double.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -269,6 +280,7 @@
 				6947BCC62B5CD78800DF8135 /* LocationSearchView.swift in Sources */,
 				6947BCBC2B5CCC7600DF8135 /* LocationManager.swift in Sources */,
 				69DEF4952B64BD360032BE3E /* RideRequestView.swift in Sources */,
+				69DEF49A2B6551F00032BE3E /* Double.swift in Sources */,
 				69DEF4912B64B3F00032BE3E /* MapViewState.swift in Sources */,
 				6947BCC42B5CD62000DF8135 /* HomeActionButtonView.swift in Sources */,
 				6947BCA22B5CC81700DF8135 /* UberCloneApp.swift in Sources */,

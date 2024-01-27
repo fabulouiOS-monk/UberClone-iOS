@@ -13,6 +13,7 @@ class LocationSearchViewModel: NSObject, ObservableObject {
     // MARK: - Properties
     @Published var result = [MKLocalSearchCompletion]()
     @Published var selectedLocationCoordinates: CLLocationCoordinate2D?
+    var userLocation: CLLocationCoordinate2D?
 
     private var searchCompleter = MKLocalSearchCompleter()
     var queryFragment: String = "" {
@@ -39,6 +40,16 @@ class LocationSearchViewModel: NSObject, ObservableObject {
 
         search.start(completionHandler: completion )
         
+    }
+
+    func computePrice(forType type: RideType) -> Double {
+        guard let coordinate = selectedLocationCoordinates else { return 0.0 }
+        guard let userLocation = self.userLocation else { return 0.0 }
+        let userLoc = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
+        let destLoc = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        
+        let tripDistanceInMeters = userLoc.distance(from: destLoc)
+        return type.computePrice(for: tripDistanceInMeters)
     }
     
     
