@@ -28,7 +28,7 @@ struct RideRequestView: View {
                         .foregroundColor(.gray)
                     Rectangle()
                         .frame(width: 6, height: 6)
-                        .foregroundColor(.black )
+                        .foregroundColor(Color.theme.primaryTextColor)
                 }.padding(.leading)
                 VStack(alignment: .leading) {
                     Text("Current Location")
@@ -36,18 +36,19 @@ struct RideRequestView: View {
                         .frame(height: 32)
                         .padding(.trailing)
                         .foregroundColor(.gray)
-                    Text("Where To?")
-                        .font(.system(size: 16, weight: .semibold))
-                        .frame(height: 32)
-                        .padding(.trailing)
+                    if let uberLocation = locationViewModel.selectedUberLocation {
+                        Text(uberLocation.title)
+                            .font(.system(size: 16, weight: .semibold))
+                            .frame(height: 32)
+                            .padding(.trailing)
+                    }
                 }
                 Spacer()
                 VStack(alignment: .trailing) {
-                    Text("10:50 AM")
-                    
+                    Text(locationViewModel.pickUpTime ?? "")
                         .frame(height: 32)
                         .padding(.trailing)
-                    Text("11:15 AM")
+                    Text(locationViewModel.dropOffTime ?? "")
                         .frame(height: 32)
                         .padding(.trailing)
                 }
@@ -83,8 +84,10 @@ struct RideRequestView: View {
                             .padding()
                         }
                         .frame(width: 112 , height: 140)
-                        .background(Color(rideType == selectedRideType ? .systemBlue : .systemGroupedBackground))
-                        .foregroundColor(rideType == selectedRideType ? .white : .black)
+                        .background(rideType == selectedRideType ? Color(.systemBlue) :
+                                        Color.theme.secondaryBackgroundColor)
+                        .foregroundColor(rideType == selectedRideType ? .white :
+                                            Color.theme.primaryTextColor)
                         .scaleEffect(rideType == selectedRideType ? 1.1 : 1.0)
                         .cornerRadius(10)
                         .onTapGesture {
@@ -118,7 +121,7 @@ struct RideRequestView: View {
                     .padding()
             }
             .frame(height: 50)
-            .background(Color(.systemGroupedBackground))
+            .background(Color.theme.secondaryBackgroundColor)
             .cornerRadius(10)
             .padding(.horizontal)
 
@@ -136,7 +139,7 @@ struct RideRequestView: View {
             }
         }
         .padding(.bottom, 24)
-        .background(.white)
+        .background(Color.theme.backgroundColor)
         .cornerRadius(16)
         
     }
