@@ -92,8 +92,9 @@ extension UberMapViewRepresentable {
             parent.mapView.addAnnotation(anno)
             parent.mapView.selectAnnotation(anno, animated: true)
             
-            /// For zooming into the selected location .
-            parent.mapView.showAnnotations(parent.mapView.annotations, animated: true)
+//            /// For zooming into the selected location. UPDATE: we commented the code since now we will be
+            /// zooming-in within the configPolyline().
+//            parent.mapView.showAnnotations(parent.mapView.annotations, animated: true)
         }
 
         func configPolyline(withDestinationCoordinates coordinates: CLLocationCoordinate2D) {
@@ -102,6 +103,12 @@ extension UberMapViewRepresentable {
                                 to: coordinates) { route in
                 self.parent.mapView.removeOverlays(self.parent.mapView.overlays)
                 self.parent.mapView.addOverlay(route.polyline)
+                let rect = self.parent.mapView.mapRectThatFits(route.polyline.boundingMapRect,
+                                                               edgePadding: .init(top: 64,
+                                                                                  left: 32,
+                                                                                  bottom: 500,
+                                                                                  right: 32))
+                self.parent.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
             }
         }
 
