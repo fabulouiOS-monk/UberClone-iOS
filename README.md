@@ -2,7 +2,7 @@
   <a href="https://github.com/fabulouiOS-monk/UberClone-iOS" title="UBER CLONE iOS"></a>
 </p>
 <h1 align="center"> Uber clone </h1>
-<p align="center"> Uber: user side simple clone app. </p>
+<p align="center"> Uber: *User side simple clone app.* Used MVVM architecture design and MapKit, CoreLocation for core functionality of the app.</p>
    
 
 ## 🚀 Features
