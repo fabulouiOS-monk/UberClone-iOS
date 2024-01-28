@@ -18,14 +18,14 @@
 - Git: For version control system
 
 ## 📂 Directory Structure
-- UberClone
-      - Extension: Any extra functionality which we need in existing entities.
-      - Core: UI and ViewModel related code for all the views, Followed MVVM design.
+- UberClone:
+      * **Extension:** *Any extra functionality which we need in existing entities.*
+      * **Core:** *UI and ViewModel related code for all the views, Followed MVVM design.*
            - Home
            - LocationSearch
            - Trips
-      - App: Starting point of the  app.
-      - Managers: Code related to manage user location.
+      * **App:** *Starting point of the  app.*
+      * **Managers:** *Code related to manage user location.*
 
 
 ## ScreenShot of the app.
