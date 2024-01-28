@@ -18,7 +18,7 @@
 - Git: For version control system
 
 ## 📂 Directory Structure
----> UberClone
+- UberClone
       - Extension: Any extra functionality which we need in existing entities.
       - Core: UI and ViewModel related code for all the views, Followed MVVM design.
            - Home
