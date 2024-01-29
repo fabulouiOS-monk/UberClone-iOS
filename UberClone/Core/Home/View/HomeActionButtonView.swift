@@ -40,9 +40,9 @@ struct HomeActionButtonView: View {
 
     func imageForState(_ state: MapViewState) -> String {
         switch state {
-        case .noInput, .profileView:
+        case .noInput:
             "line.3.horizontal"
-        case .searchingForLocation, .locationSelected, .polylineAdded:
+        case .searchingForLocation, .locationSelected, .polylineAdded, .profileView:
             "arrow.backward"
         }
     }

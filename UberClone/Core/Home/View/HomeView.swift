@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @State private var mapState = MapViewState.noInput
     @EnvironmentObject var locationViewModel: LocationSearchViewModel
+    @State private var offset: CGFloat = 0
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -46,13 +47,15 @@ struct HomeView: View {
             }
 
             if mapState == .profileView {
-                VStack {
-                    Text("Profile View")
-                }
-                .frame(width: UIScreen.main.bounds.width - 20)
-                .background(Color.theme.backgroundColor)
-                .ignoresSafeArea()
-                .transition(.move(edge: .leading))
+                ProfileView(mapState: $mapState)
+                    .frame(width: UIScreen.main.bounds.width - 60)
+                    .offset(x: offset)
+                    .background(Color.theme.backgroundColor)
+                    .ignoresSafeArea()
+                    .transition(.move(edge: .leading))
+                    .onAppear {
+                        mapState = .profileView
+                    }
             }
         }
     }
