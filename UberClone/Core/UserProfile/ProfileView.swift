@@ -14,13 +14,16 @@ struct ProfileView: View {
         VStack {
             /// User image and Name
             HStack {
+                Spacer()
                 Image(systemName: "person.crop.circle.fill")
                     .resizable()
                     .frame(width: 100, height: 100)
                 VStack(alignment: .leading) {
                     Text("Person Name")
-                    Text("4.5 rating")
-                }.padding()
+                    Text("4.5")
+                }
+                .font(.system(size: 14, weight: .bold))
+                .frame(width: 100)
                 Spacer()
                 HomeActionButtonView(mapState: $mapState)
                     .padding(.leading, 50)
