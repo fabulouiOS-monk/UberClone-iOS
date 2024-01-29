@@ -40,6 +40,7 @@
 
 <img width="382" alt="Screenshot 2024-01-28 at 10 25 59 AM" src="https://github.com/fabulouiOS-monk/UberClone-iOS/assets/60264030/5bfb6bdf-653c-44a0-bc4d-f16d14ef4fd8">
 
+<img width="402" alt="Screenshot 2024-01-29 at 10 47 51 AM" src="https://github.com/fabulouiOS-monk/UberClone-iOS/assets/60264030/435d7385-f00b-4274-b96f-dd339f0fd79f">
 
 ## 🧑🏻 Author
 
